@@ -1,0 +1,77 @@
+<p *ngIf="moduleAction">
+    <input
+      type="button"
+      class="btn btn-info"
+      style="background: #0088cc !important; color: white; border: none"
+      value="Create New"
+*ngIf="isCreate"
+      (click)="goToCreate()" 
+    />
+  </p>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          
+          <div class="headerRow">
+          <h4>FundTypes</h4>
+          <i class="fa fa-refresh" (click)="getAll()" aria-hidden="true"></i>
+        </div>
+        </div>
+        <div class="card-body">
+          <div
+            class="table-responsive"
+            id="proTeamScroll"
+            tabindex="2"
+            style="height: auto; overflow-x: auto; outline: none"
+          >
+            <table id="table_id" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Code</th>
+                  <th>Created Date</th>
+                  <th>Updated Date</th>
+                  <th>Check Id</th>
+                  <th>Revenue Id</th>
+                  <th>Status</th>
+  
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tblBody" *ngIf="fundTypes">
+               
+                  <tr *ngFor="let fundType of fundTypes">
+                    <td>{{ fundType.name}}</td>
+                    <td>{{ fundType.code }}</td>
+                    <td>{{ fundType.createdDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ fundType.updatedDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ fundType.checkId }}</td>
+                    <td>{{ fundType.revenueId }}</td>
+                    <td *ngIf="fundType.status==0">
+                      <span class="badge badge-success">Active</span>
+                    </td>
+                    <td *ngIf="fundType.status==1">
+                      <span class="badge badge-danger">InActive</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm btnEdit" *ngIf="isEdit" (click)="edit(fundType)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm btnDetails "(click)="details(fundType)"><i class="fa fa-info" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm btnDelete" *ngIf="isDelete" class="btn btn-outline-secondary"
+                      mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      (cancel)="confirmClicked = true"
+                      (confirm)="delete(fundType)"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                    </td>
+                  </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

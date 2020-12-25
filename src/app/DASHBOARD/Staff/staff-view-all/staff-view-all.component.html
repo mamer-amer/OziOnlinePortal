@@ -1,0 +1,90 @@
+<p>
+    <input
+      type="button"
+      class="btn btn-info"
+      style="background: #0088cc !important; color: white; border: none"
+      value="Create New"
+      *ngIf="isCreate"
+      (click)="goToCreate()" 
+    />
+  </p>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="headerRow">
+            <h4>Staff</h4>
+            <i class="fa fa-refresh" (click)="getAll()" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="card-body">
+          <div
+            class="table-responsive"
+            id="proTeamScroll"
+            tabindex="2"
+            style="height: auto; overflow-x: auto; outline: none"
+          >
+            <table id="table_id" class="table table-striped">
+                <thead>
+                  <tr>
+                    <!-- <th 1">Id</th> -->
+                    <th >Code</th>
+                    <th >Name</th>
+                    <th >Title</th>
+                    <th >Email</th>
+                    <th >Phone Number</th>
+                    <!-- <th >Last login Date</th> -->
+                    <th >Creation Date</th>
+                    <th >Updated Date</th>
+                
+                    <th >Status</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+
+              <tbody id="tblBody">
+               
+                  <tr *ngFor="let staff of staffs">
+                    <!-- <td>{{ staff.staffId }}</td> -->
+                    <td>{{ staff.code }}</td>
+                    <td>{{ staff.name }}</td>
+                    <td>{{ staff.title?staff.title:'N/A' }}</td>
+                    <td>{{ staff.email }}</td>
+                    <td>{{ staff.phoneNumber }}</td>
+                    <!-- <td>{{ staff.lastLoginDate | date: 'dd/MM/yyyy'  }}</td> -->
+                
+              
+                    <td>{{ staff.createdDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ staff.updatedDateTime | date: 'dd/MM/yyyy' }}</td>
+
+                    <td *ngIf="staff.status==0">
+                      <span class="badge badge-success">Active</span>
+                    </td>
+                    <td *ngIf="staff.status==1">
+                      <span class="badge badge-danger">InActive</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm btnEdit" *ngIf="isEdit" (click)="edit(staff)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm btnDetails" *ngIf="isView"(click)="details(staff)"><i class="fa fa-info" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm btnDelete" *ngIf="isDelete" class="btn btn-outline-secondary"
+                      mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      (cancel)="confirmClicked = true"
+                      (confirm)="delete(staff)"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                    </td>
+                  </tr>
+
+                  <tr *ngIf="staffs.length<1">
+                    <td colspan="16" style="text-align: center;">No data available</td>
+                  </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

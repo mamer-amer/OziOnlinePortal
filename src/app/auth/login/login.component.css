@@ -1,0 +1,8 @@
+.bgImage{
+    background-image: url("../../../assets/images/back.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

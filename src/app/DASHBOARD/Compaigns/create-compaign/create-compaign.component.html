@@ -1,0 +1,164 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 *ngIf="routeId == undefined">Add Campaign</h4>
+        <h4 *ngIf="routeId != undefined">Edit Campaign</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-horizontal">
+          <!-- <div class="form-group" *ngIf="routeId != undefined">
+            <label >Compaign Id</label>
+           <div class="col-md-4">
+              <input
+                readonly="true"
+                type="text"
+                class="form-control"
+                required
+                name="campaignId"
+                id="campaignId"
+                [(ngModel)]="compaignDto.campaignId"
+              />
+            </div>
+          </div> -->
+          <form #compaignForm="ngForm">
+            <div class="row">
+              <div class="col-md-4">
+                <label >Campaign Goal</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="campaignGoal"
+                  id="campaignGoal"
+                  [(ngModel)]="compaignDto.campaignGoal"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label >Fund Type</label>
+                <select
+                  class="form-control"
+                  name="ContributionId"
+                  [(ngModel)]="compaignDto.fundTypeId"
+                >
+                  <option selected value="null">Select any option</option>
+                  <option
+                    [value]="fundType.fundTypeId"
+                    *ngFor="let fundType of fundTypes"
+                  >
+                    {{ fundType.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label >Status</label>
+                <select
+                name="status"
+                  class="form-control"
+                  [(ngModel)]="compaignDto.status"
+                >
+                 
+                  <option
+                    [value]="option.id"
+                    *ngFor="let option of status"
+                  >
+                    {{ option.name}}
+                  </option>
+                </select>
+              </div>
+
+         
+            </div>
+
+
+         
+
+            <div class="row">
+            
+              <div class="col-md-4">
+                <label >Start Date Time</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  required
+                 
+                  name="StartDateTime"
+                  id="StartDateTime"
+                  [(ngModel)]="compaignDto.StartDateTime"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label >End Date Time</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  required
+                 
+                  name="EndDateTime"
+                  id="EndDateTime"
+                  [(ngModel)]="compaignDto.EndDateTime"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label>Visible Date time</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  (change)="onVisibleDateSelect($event)"
+                  required
+                  name="VisibleDateTime"
+                  id="VisibleDateTime"
+                  [(ngModel)]="compaignDto.VisibleDateTime"
+                />
+                <small *ngIf="wrongVisibleDate" style="color:red">{{message}}</small>
+              </div>
+            </div>
+
+
+           
+            
+          
+
+            <!-- <div class="row">
+             
+            </div> -->
+
+            <div class="row">
+              <div class="col-md-12 formButtons">
+                <input
+                  type="button"
+                  class="btn btn-info"
+                  id="btnSubmit"
+                  [disabled]="compaignForm.invalid || wrongVisibleDate==true"
+                  (click)="save()"
+                  style="
+                    background: #0088cc !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Save"
+                />
+                <input
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="back()"
+                  style="
+                    background: #646c7085 !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Cancel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

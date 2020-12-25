@@ -1,0 +1,22 @@
+<body class="bgImage">
+  <div id="wrapper">
+    <div id="dialog">
+      <button class="close">×</button>
+      <h3>Please enter the 4-digit verification code we sent via SMS:</h3>
+   
+     
+        <input type="text" class="form-control" name="code" [(ngModel)]="verifyDto.Code">
+        <br>
+        <button class="btn btn-primary btn-md" (click)="verify()"><span class="sr-only" *ngIf="isResponse"></span>Verify</button>
+      
+      <div>
+        Didn't receive the code?<br />
+        <a href="#">Send code again</a><br />
+        <a href="#">Change phone number</a>
+      </div>
+    
+    </div>
+  </div>
+
+</body>
+

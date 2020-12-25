@@ -1,0 +1,108 @@
+
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Member Details</h4>
+        </div>
+        <div class="card-body">
+    
+            <dl>
+                <!-- <dt>
+                     ID
+                </dt>
+    
+                <dd>
+                  <p>{{memberDto.memberId}}</p> 
+                </dd> -->
+                <dt>
+                    NAME
+                </dt>
+    
+                <dd>
+                  <p>{{memberDto.name}}</p> 
+                </dd>
+    
+                <dt>
+                    Code
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.code}}</p> 
+                </dd>
+                <dt>
+                    Email
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.email}}</p> 
+                </dd>
+    
+                <dt>
+                    Phone
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.phone}}</p> 
+                </dd>
+                <dt>
+                    Family Link Code
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.familyLinkCode?memberDto.familyLinkCode:'N/A'}}</p> 
+                </dd>
+    
+            
+                <dt>
+                    ANNIVERSAY DATE 
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.anniversary | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+    
+            
+                <dt>
+                    START DATE 
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.createdDateTime | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+    
+                <dt>
+                    END DATE 
+                </dt>
+    
+                <dd>
+                    <p>{{memberDto.updatedDateTime | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+    
+                
+                
+<!--     
+                <dt>
+                    STATUS
+                </dt>
+    
+                <dd>
+                   <p *ngIf="memberDto.status==0">Acitve</p>
+                   <p *ngIf="memberDto.status==1">InActive</p>
+                </dd> -->
+    
+            </dl>
+    
+            <p>
+               <a (click)="back()">Back</a>
+            </p>
+    
+        </div>
+    
+    </div>
+    </div>
+    
+    </div>

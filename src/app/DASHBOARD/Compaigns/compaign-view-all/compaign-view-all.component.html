@@ -1,0 +1,81 @@
+<p>
+    <input
+      type="button"
+      class="btn btn-info"
+      style="background: #0088cc !important; color: white; border: none"
+      value="Create New"
+*ngIf="isCreate"
+      (click)="goToCreate()" 
+    />
+  </p>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          
+          <div class="headerRow">
+          <h4>Compaigns</h4>
+          <i class="fa fa-refresh" (click)="getAll()" aria-hidden="true"></i>
+        </div>
+        </div>
+        <div class="card-body">
+          <div
+            class="table-responsive"
+            id="proTeamScroll"
+            tabindex="2"
+            style="height: auto; overflow-x: auto; outline: none"
+          >
+            <table id="table_id" class="table table-striped">
+              <thead>
+                <tr>
+                  <!-- <th>Id</th> -->
+                  <th>Name</th>
+                  <!-- <th>Code</th> -->
+                  <th>Created Date</th>
+                  <th>Updated Date</th>
+                  <th>Visible Date</th>
+                  <th>Fund Type</th>
+                  <!-- <th>Status</th>
+   -->
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tblBody">
+               
+                  <tr *ngFor="let compaign of compaigns">
+                    <!-- <td>{{compaign.campaignId}}</td> -->
+                    <td>{{ compaign.campaignGoal?compaign.campaignGoal:'N/A'}}</td>
+                    <td>{{ compaign.createdDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ compaign.updatedDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ compaign.visibleDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ compaign.fundTypeName?compaign.fundTypeName:'N/A' }}</td>
+                    <!-- <td *ngIf="compaign.status==0">
+                      <span class="badge badge-success">Active</span>
+                    </td>
+                    <td *ngIf="compaign.status==1">
+                      <span class="badge badge-danger">InActive</span>
+                    </td>
+                    <td *ngIf="compaign.status!=1 && compaign.status!=0">
+                      <span class="badge badge-warn">N/A</span>
+                    </td> -->
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm btnEdit" *ngIf="isEdit" (click)="edit(compaign)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm btnDetails "(click)="details(compaign)"><i class="fa fa-info" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm btnDelete" *ngIf="isDelete" class="btn btn-outline-secondary"
+                      mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      (cancel)="confirmClicked = true"
+                      (confirm)="delete(compaign)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </td>
+                  </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

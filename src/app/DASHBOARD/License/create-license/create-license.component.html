@@ -1,0 +1,189 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 *ngIf="routeId == undefined">Add License</h4>
+        <h4 *ngIf="routeId != undefined">Edit License Profile</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-horizontal">
+        
+          <form #myForm="ngForm">
+            <div class="row">
+              <div class="col-md-4">
+                <label >ADMIN EMAIL</label>
+                <input
+                  type="text"
+                  readonly="true"
+                  class="form-control"
+                  required
+                  name="adminEmail"
+                  id="adminEmail"
+                  [(ngModel)]="licenseDto.adminEmail"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label >ADMIN PHONE</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="adminPhone"
+                  id="adminPhone"
+                  [(ngModel)]="licenseDto.adminPhone"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label >CONTACT PERSON</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="contactPerson"
+                  id="contactPerson"
+                  [(ngModel)]="licenseDto.contactPerson"
+                />
+              </div>
+
+            </div>
+
+         
+            <div class="row">
+              <div class="col-md-4">
+                <label >SUBSCRIPTION PLAN</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="SubscriptionPlan"
+                  id="SubscriptionPlan"
+                  [(ngModel)]="licenseDto.SubscriptionPlan"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label > EXPIRATION DATE</label>
+                <input
+                  type="date"
+                  readonly="true"
+                  class="form-control"
+                  required
+                  name="expirationDate"
+                  id="expirationDate"
+                  [(ngModel)]="licenseDto.expirationDate"
+                />
+              </div>
+              <div class="col-md-4">
+                <label> AMOUNT PAID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="amountPaid"
+                  id="amountPaid"
+                  [(ngModel)]="licenseDto.amountPaid"
+                />
+              </div>
+            </div>
+         
+            <div class="row">
+             
+             
+              <div class="col-md-4">
+                <label >AMOUNT HISTORY</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="amountHistory"
+                  id="amountHistory"
+                  [(ngModel)]="licenseDto.amountHistory"
+                />
+              </div>
+              <div class="col-md-4">
+                <label >PHYSICL ADDRESS</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="physicalAddress"
+                  id="physicalAddress"
+                  [(ngModel)]="licenseDto.physicalAddress"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label >DESCRIPTION</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="description"
+                  id="description"
+                  [(ngModel)]="licenseDto.physicalAddress"
+                />
+              </div>
+
+            </div>
+        
+            <div class="row">
+            
+              <div class="col-md-4">
+                <label >Status</label>
+                <select
+                name="status"
+                  class="form-control"
+                  [(ngModel)]="licenseDto.status"
+                >
+                 
+                  <option
+                    [value]="option.id"
+                    *ngFor="let option of status"
+                  >
+                    {{ option.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+           
+
+
+            <div class="row">
+              <div class="col-md-12 formButtons">
+                <input
+                  type="button"
+                  class="btn btn-info"
+                  id="btnSubmit"
+                  [disabled]="myForm.invalid"
+                  (click)="save()"
+                  style="
+                    background: #0088cc !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Save"
+                />
+                <input
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="back()"
+                  style="
+                    background: #646c7085 !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Cancel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <p>
+          <a (click)="back()">Back</a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>

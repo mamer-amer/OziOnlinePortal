@@ -1,0 +1,128 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 *ngIf="routeId == undefined">Add Pledge</h4>
+        <h4 *ngIf="routeId != undefined">Edit Pledge</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-horizontal">
+        
+          <form #fundTypeForm="ngForm">
+            <div class="row">
+              <div class="col-md-4">
+                <label>Campaign Goals</label>
+                <select class="form-control" name="campaignId" [(ngModel)]="pledgeDto.campaignId">
+                  <option disabled selected>Select any option</option>
+                  <option
+                    [value]="compaign.campaignId"
+                    *ngFor="let compaign of compaigns"
+                  >
+                    {{ compaign.campaignGoal?compaign.campaignGoal:'Name not defined' }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label>Members</label>
+                <select class="form-control" name="memberId" [(ngModel)]="pledgeDto.memberId">
+                  <option disabled selected>Select any option</option>
+                  <option
+                    [value]="option.memberId"
+                    *ngFor="let option of membersList"
+                  >
+                    {{ option.name?option.name:'Name not defined' }}
+                  </option>
+                </select>
+              </div>
+
+
+              <div class="col-md-4">
+                <label>Amount</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  required
+                  min="0"
+                  name="amount"
+                  id="amount"
+                  [(ngModel)]="pledgeDto.amount"
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <label>Frequency</label>
+                <select class="form-control" name="frequency" [(ngModel)]="pledgeDto.frequency">
+                  <option disabled selected>Select any option</option>
+                  <option
+                    [value]="frequency.id"
+                    *ngFor="let frequency of frequencies"
+                  >
+                    {{ frequency.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label>Start Date Time</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  required
+                  name="StartDateTime"
+                  id="StartDateTime"
+                  [(ngModel)]="pledgeDto.StartDateTime"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label>End Date Time</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  required
+                  name="EndDateTime"
+                  id="EndDateTime"
+                  [(ngModel)]="pledgeDto.EndDateTime"
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 formButtons">
+                <input
+                  type="button"
+                  class="btn btn-info"
+                  id="btnSubmit"
+                  [disabled]="fundTypeForm.invalid"
+                  (click)="save()"
+                  style="
+                    background: #0088cc !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Save"
+                />
+                <input
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="back()"
+                  style="
+                    background: #646c7085 !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Cancel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <p>
+            <a (click)="back()">Back</a>
+          </p> -->
+      </div>
+    </div>
+  </div>
+</div>

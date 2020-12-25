@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Check Details</h4>
+        </div>
+        <div class="card-body">
+    
+            <dl>
+                <dt>
+                    VERIFICATION CODE
+                </dt>
+    
+                <dd>
+                  <p>{{licenseDTO.verificationCode}}</p> 
+                </dd>
+                <dt>
+                    REGISTRATION NAME
+                </dt>
+    
+                <dd>
+                  <p>{{licenseDTO.registrationName}}</p> 
+                </dd>
+    
+                <dt>
+                    ADMIN EMAIL
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.adminEmail}}</p> 
+                </dd>
+                <dt>
+                    ADMIN PHONE
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.adminPhone}}</p> 
+                </dd>
+                <dt>
+                    CONTACT PERSON
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.contactPerson}}</p> 
+                </dd>
+                <dt>
+                    SUBSCRIPTION PLAN
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.SubscriptionPlan}}</p> 
+                </dd>
+                <dt>
+                    EXPIRATION DATE
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.expirationDate | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+                <dt>
+                    CREATION DATE
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.creationDate | date: 'dd/MM/yyyy'  }}</p> 
+                </dd>
+                <dt>
+                    UPDATED DATE
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.updatedDate}}</p> 
+                </dd>
+                <dt>
+                    AMOUNT PAID
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.amountPaid}}</p> 
+                </dd>
+                <dt>
+                    AMOUNT HISTORY
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.amountHistory}}</p> 
+                </dd>
+                <dt>
+                    PHYSICL ADDRESS
+                </dt>
+    
+                <dd>
+                    <p>{{licenseDTO.physicalAddress}}</p> 
+                </dd>
+                <dt>
+                    DESCRIPTION
+                </dt>
+    
+                <dd>{{licenseDTO.description}}</dd>
+    
+                <dt>
+                    STATUS
+                </dt>
+  
+                <dd>
+                   <p *ngIf="licenseDTO.status==true">Acitve</p>
+                   <p *ngIf="licenseDTO.status==false">InActive</p>
+                </dd>
+      
+            </dl>
+    
+            <p>
+               <a (click)="back()">Back</a>
+            </p>
+    
+        </div>
+    
+    </div>
+    </div>
+    
+    </div>

@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Staff Details</h4>
+        </div>
+        <div class="card-body">
+    
+            <dl>
+                <dt>
+                     NAME
+                </dt>
+    
+                <dd>
+                  <p>{{staffDTO.name}}</p> 
+                </dd>
+                <dt>
+                     CODE
+                </dt>
+    
+                <dd>
+                  <p>{{staffDTO.code}}</p> 
+                </dd>
+    
+                <dt>
+                    TITLE
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.title}}</p> 
+                </dd>
+                <dt>
+                    EMAIL
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.email}}</p> 
+                </dd>
+                <dt>
+                    PHONE NUMBER
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.phoneNumber}}</p> 
+                </dd>
+                <dt>
+                    CREATION DATE
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.createdDate | date: 'dd/MM/yyyy'}}</p> 
+                </dd>
+                <dt>
+                    LAST LOGIN DATE
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.lastLoginDate | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+                <dt>
+                    PERMISSION DETAIL
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.permissionDetail==0?'True':'False' }}</p> 
+                </dd>
+                <dt>
+                    LAST MANAGED DATE
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.lastManagedDate |  date: 'dd/MM/yyyy'}}</p> 
+                </dd>
+                <dt>
+                    DATA STATUS
+                </dt>
+    
+                <dd>
+                    <p>{{staffDTO.dataStatus==0?'True':'False' }}</p> 
+                </dd>
+               
+  
+               
+      
+            </dl>
+    
+            <p>
+               <a (click)="back()">Back</a>
+            </p>
+    
+        </div>
+    
+    </div>
+    </div>
+    
+    </div>

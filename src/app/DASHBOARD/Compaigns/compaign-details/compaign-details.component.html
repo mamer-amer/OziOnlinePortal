@@ -1,0 +1,77 @@
+
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Compaign Details</h4>
+        </div>
+        <div class="card-body">
+    
+            <dl>
+                <!-- <dt>
+                    COMPAIGN ID
+                </dt>
+    
+                <dd>
+                  <p>{{compaignDto.campaignId}}</p> 
+                </dd> -->
+                <dt>
+                    NAME
+                </dt>
+    
+                <dd>
+                  <p>{{compaignDto.campaignGoal}}</p> 
+                </dd>
+    
+                <!-- <dt>
+                    Code
+                </dt>
+    
+                <dd>
+                    <p>{{compaignDto.Code}}</p> 
+                </dd> -->
+    
+            
+                <dt>
+                    START DATE 
+                </dt>
+    
+                <dd>
+                    <p>{{compaignDto.StartDateTime | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+    
+                <dt>
+                    END DATE 
+                </dt>
+    
+                <dd>
+                    <p>{{compaignDto.EndDateTime | date: 'dd/MM/yyyy' }}</p> 
+                </dd>
+    
+                
+                
+    
+                <!-- <dt>
+                    STATUS
+                </dt>
+    
+                <dd>
+                   <p *ngIf="compaignDto.status==0">Acitve</p>
+                   <p *ngIf="compaignDto.status==1">InActive</p>
+                </dd> -->
+    
+            </dl>
+    
+            <p>
+               <a (click)="back()">Back</a>
+            </p>
+    
+        </div>
+    
+    </div>
+    </div>
+    
+    </div>

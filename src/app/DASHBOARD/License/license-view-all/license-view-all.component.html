@@ -1,0 +1,96 @@
+<p>
+    <input
+      type="button"
+      class="btn btn-info"
+      style="background: #0088cc !important; color: white; border: none"
+      value="Create New"
+*ngIf="isCreate"
+      (click)="goToCreate()" 
+    />
+  </p>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>License</h4>
+        </div>
+        <div class="card-body">
+          <div
+            class="table-responsive"
+            id="proTeamScroll"
+            tabindex="2"
+            style="height: auto; overflow-x: auto; outline: none"
+          >
+            <table id="table_id" class="table table-striped">
+                <thead><tr>
+                  <!-- <th title="Field #1">License ManagementId</th> -->
+                    <th title="Field #2">Verification Code</th>
+                    <th title="Field #3">Registration Name</th>
+                    <th title="Field #4">Admin Email</th>
+                    <th title="Field #5">AdminPhone</th>
+                    <th title="Field #6">Contact Person</th>
+                    <th title="Field #7">Subscription Plan</th>
+                    <th title="Field #8">Expiration Date</th>
+                    <th title="Field #9">Creation Date</th>
+                    <th title="Field #10">Updated Date</th>
+                    <th title="Field #11">Amount Paid</th>
+                    <th title="Field #12">Amount History</th>
+                    <th title="Field #13">Physica lAddress</th>
+                    <th title="Field #14">Description</th>
+                    <th title="Field #15">Status</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+
+              <tbody id="tblBody">
+               
+                  <tr *ngFor="let license of licenses">
+                    <!-- <td>{{ license.licenseManagementId }}</td> -->
+                    <td>{{ license.verificationCode }}</td>
+                    <td>{{ license.registrationName }}</td>
+                    <td>{{ license.adminEmail }}</td>
+                    <td>{{ license.adminPhone }}</td>
+                    <td>{{ license.contactPerson }}</td>
+                    <td>{{ license.subscriptionPlan }}</td>
+                
+              
+                    <td>{{ license.expirationDate | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ license.creationDate | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ license.updatedDate | date: 'dd/MM/yyyy' }}</td>
+
+                    <td>{{ license.amountPaid }}</td>
+                    <td>{{ license.amountHistory }}</td>
+                    <td>{{ license.physicalAddress }}</td>
+                    <td>{{ license.description }}</td>
+                
+                    <td *ngIf="license.status==0">
+                      <span class="badge badge-success">Active</span>
+                    </td>
+                    <td *ngIf="license.status==1">
+                      <span class="badge badge-danger">InActive</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm btnEdit" *ngIf="isEdit" (click)="edit(license)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm btnDetails "(click)="details(license)"><i class="fa fa-info" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm btnDelete" *ngIf="isDelete" class="btn btn-outline-secondary"
+                      mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      (cancel)="confirmClicked = true"
+                      (confirm)="delete(license)"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                    </td>
+                  </tr>
+
+                  <tr *ngIf="licenses.length<1">
+                    <td colspan="16" style="text-align: center;">No data available</td>
+                  </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

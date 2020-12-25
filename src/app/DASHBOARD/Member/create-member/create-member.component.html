@@ -1,0 +1,217 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 *ngIf="routeId == undefined">Add Member</h4>
+          <h4 *ngIf="routeId != undefined">Edit Member</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-horizontal">
+              <form #myForm="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      placeholder="Enter your name"
+                      class="form-control"
+                      required
+                      name="Name"
+                      id="Name"
+                      [(ngModel)]="memberDto.name"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label>Code</label>
+                    <input
+                      type="text"
+                      placeholder="Enter your code"
+                      class="form-control"
+                      required
+                      name="Code"
+                      id="Code"
+                      [(ngModel)]="memberDto.code"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      placeholder="Enter your Email"
+                      class="form-control"
+                      required
+                      name="email"
+                      id="email"
+                      [(ngModel)]="memberDto.email"
+                    />
+                  </div>
+                </div>
+  
+               
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Gender</label>
+                    <select
+                      name="gender"
+                      class="form-control"
+                      [(ngModel)]="memberDto.gender"
+                    >
+                      <option [value]="option.id" *ngFor="let option of gender">
+                        {{ option.name }}
+                      </option>
+                    </select>
+                  </div>
+  
+                  <div class="col-md-4">
+                    <label>Martial Status</label>
+                    <select
+                      
+                      name="status"
+                      class="form-control"
+                      [(ngModel)]="memberDto.maritalStatus"
+                    >
+                   
+                      <option
+                        [value]="option.id"
+                        *ngFor="let option of maritalStatus"
+                      >
+                        {{ option.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label>Family Position</label>
+                    <select
+                      
+                      name="familyPosition"
+                      class="form-control"
+                      [(ngModel)]="memberDto.familyPosition"
+                    >
+                   
+                      <option
+                        [value]="option.id"
+                        *ngFor="let option of familyPosition"
+                      >
+                        {{ option.name }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  
+                  <div class="col-md-4">
+                    <label>Family Link Code</label>
+                    <input
+                      type="text"
+                      placeholder="Enter your familyLinkCode"
+                      class="form-control"
+                      required
+                      name="familyLinkCode"
+                      id="familyLinkCode"
+                      [(ngModel)]="memberDto.familyLinkCode"
+                    />
+                  </div>
+
+                  
+                  <div class="col-md-4">
+                    <label>Anniversary Date</label>
+                    <input
+                    type="date"
+                    placeholder="Enter your Anniversary Date"
+                    class="form-control"
+                    required
+                    name="anniversary"
+                    id="anniversary"
+                    [(ngModel)]="memberDto.anniversary"
+                  />
+                  </div>
+                 
+                  <div class="col-md-4">
+                    <label>Privacy Level</label>
+                    <select
+                      
+                      name="privacyLevel"
+                      class="form-control"
+                      [(ngModel)]="memberDto.privacyLevel"
+                    >
+                   
+                      <option
+                        [value]="option.id"
+                        *ngFor="let option of privacyLevel"
+                      >
+                        {{ option.name }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-8">
+                    <label>Address</label>
+                    <input
+                      type="text"
+                      placeholder="Enter your address"
+                      class="form-control"
+                      required
+                      name="address"
+                      id="familyLinkCode"
+                      [(ngModel)]="memberDto.address"
+                    />
+                  </div>
+                  <div class="col-lg-4">
+                    <label>Phone Number</label>
+                    <input
+                      type="text"
+                      placeholder="Enter your phone no"
+                      class="form-control"
+                      required
+                      name="phone"
+                      id="phone"
+                      [(ngModel)]="memberDto.phone"
+                    />
+                  </div>
+                </div>
+
+  
+                <div class="row">
+                  <div class="col-md-12 formButtons">
+                    <input
+                      type="button"
+                      class="btn btn-info"
+                      id="btnSubmit"
+                      [disabled]="myForm.invalid"
+                      (click)="save()"
+                      style="
+                        background: #0088cc !important;
+                        color: white;
+                        border: none;
+                      "
+                      value="Save"
+                    />
+                    <input
+                      type="button"
+                      class="btn btn-dark"
+                      (click)="back()"
+                      style="
+                        background: #646c7085 !important;
+                        color: white;
+                        border: none;
+                      "
+                      value="Cancel"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+  
+          <!-- <p>
+              <a (click)="back()">Back</a>
+           </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

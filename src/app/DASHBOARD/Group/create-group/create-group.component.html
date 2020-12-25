@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 *ngIf="routeId == undefined">Add Group</h4>
+        <h4 *ngIf="routeId != undefined">Edit Group</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="form-horizontal">
+            <form #myForm="ngForm">
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Name</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    class="form-control"
+                    required
+                    name="Name"
+                    id="Name"
+                    [(ngModel)]="groupDto.name"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label>Code</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your code"
+                    class="form-control"
+                    required
+                    name="Code"
+                    id="Code"
+                    [(ngModel)]="groupDto.code"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label>Description</label>
+                  <input
+                    type="text"
+                    placeholder="Enter description"
+                    class="form-control"
+                    required
+                    name="Code"
+                    id="Code"
+                    [(ngModel)]="groupDto.description"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Status</label>
+                  <select
+                    name="status"
+                    class="form-control"
+                    [(ngModel)]="groupDto.status"
+                  >
+                    <option [value]="option.id" *ngFor="let option of status">
+                      {{ option.name }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label>Members</label>
+                  <ng-multiselect-dropdown
+                    [placeholder]="'Select Member'"
+                    [data]="membersList"
+                    [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings"
+                    name="memberIds"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    (onDeSelect)="onItemDeSelect($event)"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 formButtons">
+                  <input
+                    type="button"
+                    class="btn btn-info"
+                    id="btnSubmit"
+                    [disabled]="myForm.invalid"
+                    (click)="save()"
+                    style="
+                      background: #0088cc !important;
+                      color: white;
+                      border: none;
+                    "
+                    value="Save"
+                  />
+                  <input
+                    type="button"
+                    class="btn btn-dark"
+                    (click)="back()"
+                    style="
+                      background: #646c7085 !important;
+                      color: white;
+                      border: none;
+                    "
+                    value="Cancel"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- <p>
+            <a (click)="back()">Back</a>
+         </p> -->
+      </div>
+    </div>
+  </div>
+</div>

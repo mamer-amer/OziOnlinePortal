@@ -1,0 +1,70 @@
+<p>
+    <input
+      type="button"
+      class="btn btn-info"
+      style="background: #0088cc !important; color: white; border: none"
+      value="Create New"
+*ngIf="isCreate"
+      (click)="goToCreate()" 
+    />
+  </p>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          
+          <div class="headerRow">
+            <h4>Pledges</h4>
+          <i class="fa fa-refresh" (click)="getAll()" aria-hidden="true"></i>
+        </div>
+        </div>
+        <div class="card-body">
+          <div
+            class="table-responsive"
+            id="proTeamScroll"
+            tabindex="2"
+            style="height: auto; overflow-x: auto; outline: none"
+          >
+            <table id="table_id" class="table table-striped">
+              <thead>
+                <tr>
+                  <!-- <th>Id</th> -->
+                  <th>Amount</th>
+                  <th>Frequency</th>
+                  <th>Created Date</th>
+                  <th>Updated Date</th>
+                  <!-- <th>Status</th> -->
+                  
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tblBody">
+               
+                  <tr *ngFor="let pledge of pledge">
+                    <!-- <td>{{ pledge.campaignId }}</td> -->
+                    <td>{{ pledge.amount }}</td>
+                    <td>{{ pledge.frequency }}</td>
+                    <td>{{ pledge.createdDateTime | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ pledge.updatedDateTime | date: 'dd/MM/yyyy' }}</td>
+                  
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm btnEdit" *ngIf="isEdit" (click)="edit(pledge)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm btnDetails "(click)="details(pledge)"><i class="fa fa-info" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm btnDelete" *ngIf="isDelete" class="btn btn-outline-secondary"
+                      mwlConfirmationPopover
+                      [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      (cancel)="confirmClicked = true"
+                      (confirm)="delete(pledge)"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                    </td>
+                  </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 *ngIf="routeId == undefined">Add Fund Type</h4>
+        <h4 *ngIf="routeId != undefined">Edit Fund Type</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-horizontal">
+          <form #fundTypeForm="ngForm">
+            <div class="row">
+              <div class="col-md-4">
+                <label>Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="name"
+                  id="name"
+                  [(ngModel)]="fundTypeDto.name"
+                />
+              </div>
+              <div class="col-md-4">
+                <label>Code</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="Code"
+                  id="Code"
+                  [(ngModel)]="fundTypeDto.Code"
+                />
+              </div>
+              <div class="col-md-4">
+                <label>Checks</label>
+
+                <select
+                  class="form-control"
+                  name="check"
+                  [(ngModel)]="fundTypeDto.CheckId"
+                >
+                  <option value="null" selected>Select any option</option>
+                  <option [value]="check.checkId" *ngFor="let check of checks">
+                    {{ check.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <label>Revenues</label>
+
+                <select
+                  class="form-control"
+                  name="revenue"
+                  [(ngModel)]="fundTypeDto.revenueId"
+                >
+                  <option value="null" selected>Select any option</option>
+                  <option
+                    [value]="revenue.revenueId"
+                    *ngFor="let revenue of revenues"
+                  >
+                    {{ revenue.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label>Comment</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  name="comment"
+                  id="comment"
+                  [(ngModel)]="fundTypeDto.comment"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label>Status</label>
+                <select
+                  name="status"
+                  class="form-control"
+                  [(ngModel)]="fundTypeDto.status"
+                >
+                  <option [value]="option.id" *ngFor="let option of status">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 formButtons">
+                <input
+                  type="button"
+                  class="btn btn-info"
+                  id="btnSubmit"
+                  [disabled]="fundTypeForm.invalid"
+                  (click)="save()"
+                  style="
+                    background: #0088cc !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Save"
+                />
+                <input
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="back()"
+                  style="
+                    background: #646c7085 !important;
+                    color: white;
+                    border: none;
+                  "
+                  value="Cancel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <p>
+          <a (click)="back()">Back</a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>

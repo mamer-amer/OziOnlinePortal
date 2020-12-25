@@ -1,0 +1,59 @@
+
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Revenue Details</h4>
+        </div>
+        <div class="card-body">
+    
+            <dl>
+                <!-- <dt>
+                    REVENUE ID
+                </dt>
+    
+                <dd>
+                  <p>{{revenueDto.revenueId}}</p> 
+                </dd> -->
+                <dt>
+                    CODE
+                </dt>
+    
+                <dd>
+                  <p>{{revenueDto.code}}</p> 
+                </dd>
+    
+                <dt>
+                    NAME
+                </dt>
+    
+                <dd>
+                    <p>{{revenueDto.name}}</p> 
+                </dd>
+    
+                
+    
+                <dt>
+                    STATUS
+                </dt>
+    
+                <dd>
+                   <p *ngIf="revenueDto.status==true">Acitve</p>
+                   <p *ngIf="revenueDto.status==false">InActive</p>
+                </dd>
+    
+            </dl>
+    
+            <p>
+               <a (click)="back()">Back</a>
+            </p>
+    
+        </div>
+    
+    </div>
+    </div>
+    
+    </div>
