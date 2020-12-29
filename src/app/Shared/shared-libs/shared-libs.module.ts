@@ -1,3 +1,4 @@
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -16,10 +17,10 @@ import { TreeviewModule } from 'ngx-treeview';
     CommonModule,
     ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
-
+  
     FormsModule,
     TreeviewModule.forRoot(),
-   
+    NgxUiLoaderModule,
     HttpClientModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger',
@@ -34,12 +35,12 @@ import { TreeviewModule } from 'ngx-treeview';
   exports: [
     CommonModule,
     ReactiveFormsModule,
+    NgxUiLoaderModule,
     TreeviewModule,
     FormsModule,
     HttpClientModule,
     ConfirmationPopoverModule,
     ToastrModule,
-    
     NgMultiSelectDropDownModule
   ],
   providers: []

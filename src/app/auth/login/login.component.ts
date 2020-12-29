@@ -1,3 +1,4 @@
+import { LoaderService } from './../../../services/loader.service';
 import { ToastrService } from 'ngx-toastr';
 import { OAuthService } from './../../../services/oauth.service';
 import { login } from './../../../models/login';
@@ -11,10 +12,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private OAuthService:OAuthService,private router:Router,private toastSerivce:ToastrService) { }
+  constructor(private OAuthService:OAuthService,private router:Router,private toastSerivce:ToastrService,
+    public demoService:LoaderService) { }
+    
   loginDTO : login = new login();
 
   ngOnInit(): void {
+    
+    this.demoService.startFullPageLoader();
+    this.demoService.stopFullPageLoader();
     const token = sessionStorage.getItem('accesstoken');
     if(token!=null){
       this.goToMainPage();

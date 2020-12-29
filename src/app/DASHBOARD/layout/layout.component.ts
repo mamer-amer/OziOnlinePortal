@@ -1,3 +1,4 @@
+import { LoaderService } from './../../../services/loader.service';
 import { ModuleAction } from './../../../models/moduleActions';
 import { Modules } from './../../../models/Modules';
 import { CommonService } from './../../Shared/shared-libs/Common.service';
@@ -21,11 +22,14 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   modules: Modules[];
   licensedPerson: any = false;
 
-  constructor(private router: Router, private enumService: EnumService, private commonService: CommonService) { }
+  constructor(public demoService:LoaderService,private router: Router, private enumService: EnumService, private commonService: CommonService) { }
   userType = Number(sessionStorage.getItem("userType"));
   ngOnInit(): void {
 
 
+
+    this.demoService.startFullPageLoader();
+    this.demoService.stopFullPageLoader();
   
 
     this.username = sessionStorage.getItem('username');

@@ -1,3 +1,5 @@
+import { LoaderService } from './../../../../services/loader.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ModuleAction } from './../../../../models/moduleActions';
 import { CommonService } from './../../../Shared/shared-libs/Common.service';
 import { Staff } from './../../../../models/staff';
@@ -15,7 +17,7 @@ export class StaffViewAllComponent implements OnInit,OnDestroy{
   staffs : any = []; 
   sub : any;
   moduleAction : Array<ModuleAction> = [];
-  constructor(private staffService:StaffService,private router:Router,private activatedRoute:ActivatedRoute,private commonService:CommonService) { }
+  constructor(public demoService:LoaderService,private staffService:StaffService,private router:Router,private activatedRoute:ActivatedRoute,private commonService:CommonService) { }
   popoverTitle = 'Delete';
   popoverMessage = 'Are you sure you want to delete this?';
   confirmClicked = false;
@@ -25,6 +27,7 @@ export class StaffViewAllComponent implements OnInit,OnDestroy{
   isView = false;
   isDelete  = false;
   moduleId:any;
+  config :any;
   userType = sessionStorage.getItem('userType');
   ngOnInit(): void {
 

@@ -1,3 +1,4 @@
+import { LoaderService } from './../services/loader.service';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 declare var $: any;
 
@@ -9,6 +10,10 @@ declare var $: any;
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'OzuOnlineFrontEnd';
+
+  constructor(public demoService:LoaderService){
+    
+  }
 
   ngOnInit() {
   

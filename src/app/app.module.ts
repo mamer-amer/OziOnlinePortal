@@ -1,3 +1,4 @@
+import { LoaderService } from './../services/loader.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,8 +16,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 import { DatePipe } from '@angular/common';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule, NgxUiLoaderConfig, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 
+
+let loaderConfig:NgxUiLoaderConfig = {};
+let tblLoaderConfig = {};
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +33,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-  
+    NgxUiLoaderModule.forRoot(loaderConfig),
     FormsModule,
     ReactiveFormsModule,
+    NgxUiLoaderRouterModule,
     SharedLibsModule
     
 
@@ -43,6 +49,16 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     },
     DatePipe,
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+export class config {
+
+  constructor(private demoService:LoaderService){
+    loaderConfig = this.demoService.config;
+    tblLoaderConfig = this.demoService.tblLoaderConfig;
+  }
+}

@@ -11,6 +11,7 @@ import * as _ from 'lodash';
   providedIn: 'root'
 })
 export class CommonService {
+ 
 
   
   constructor(private http:HttpClient,private API_URLS:API_URLS,private _enumService : EnumService) { }
